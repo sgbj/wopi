@@ -44,8 +44,7 @@ app.MapGet("/api/files", async (HttpContext context, WopiDbContext db) =>
             var urlsrc = discoveryDocument
                 ?.Descendants("action")
                 .FirstOrDefault(e => e.Attribute("name")?.Value == name && e.Attribute("ext")?.Value == extension)
-                ?.Attribute("urlsrc")?.Value
-                ?? "";
+                ?.Attribute("urlsrc")?.Value;
 
             if (string.IsNullOrWhiteSpace(urlsrc))
             {
